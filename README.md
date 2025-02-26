@@ -32,3 +32,10 @@ A backup of all of my coding projects after Ubuntu on my laptop crashed.
   - #### src
     - main.rs
   - Cargo.toml
+---
+## HTML-CSS-JavaScript
+- ### Whale Page
+  - whalepage.html
+- ### Login Form
+  - styles.css
+  - login-form.html
