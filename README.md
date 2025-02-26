@@ -14,9 +14,21 @@ A backup of all of my coding projects after Ubuntu on my laptop crashed.
 ---
 ## Java
 - ### CellAuto
+  - CellAuto.java
 - ### Mushroom Planner
-- ### numToRom
+  - MushroomPlanner.java
 - ### remDup
+  - remDup.java
 - ### testProjects
+  - doubleIncrements.java
+  - stringTester.java
 - ### Werewolf Hunt
+  - werewolf.java
 - ### XOXO (Tic-Tac)
+  - xoxo.java
+---
+## Rust
+- ### myTest
+  - #### src
+    - main.rs
+  - Cargo.toml
