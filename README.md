@@ -1,6 +1,8 @@
 # Code-Projects
 A backup of all of my coding projects after Ubuntu on my laptop crashed.
 ---
+## Miscellaneous
+- .vimrc(.txt) - VIm Config File
 ## C
 - colorscheme.c
 ---
@@ -39,3 +41,4 @@ A backup of all of my coding projects after Ubuntu on my laptop crashed.
 - ### Login Form
   - styles.css
   - login-form.html
+---
