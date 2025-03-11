@@ -1,5 +1,7 @@
-- SageMath
-- HTML Colors Preview
-- sl (train)
-- clera (nuke)
-- Vertical Code Block lines
+- Installed Plugins
+  - SageMath
+  - HTML Colors Preview
+  - sl (train)
+  - clera (nuke)
+  - Vertical Code Block lines
+  - C/C++/Java/Python Compiler
