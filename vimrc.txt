@@ -1,8 +1,0 @@
-"Line Number
-set number
-"Colorscheme
-colorscheme elflord
-"Status Bar
-set laststatus=2
-"Indentation
-filetype indent on
