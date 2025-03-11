@@ -3,6 +3,8 @@ A backup of all of my coding projects after Ubuntu on my laptop crashed.
 ---
 ## Miscellaneous
 - .vimrc(.txt) - VIm Config File
+- installed-plugins.md
+- vimCommands.txt
 ## C
 - colorscheme.c
 ---
