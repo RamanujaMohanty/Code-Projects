@@ -1,0 +1,2 @@
+1. Copying from one file to another: cat source.filetype | destination.filetype
+2. Accessing your vim configuration file: vim ~/.vimrc
