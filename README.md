@@ -7,6 +7,13 @@ A backup of all of my coding projects after Ubuntu on my laptop crashed.
 - vimCommands.txt
 ## C
 - colorscheme.c
+- config.c
+- Test
+  - test.c
+  - test1.c
+  - test2.c
+  - test3.c
+  - test4.c
 ---
 ## C++
 - ### Dijkstra's Algorithm
