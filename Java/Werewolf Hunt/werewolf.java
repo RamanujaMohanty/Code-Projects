@@ -1,4 +1,4 @@
-/  File: werewolf.java
+//  File: werewolf.java
 //  By: Ramanuja Mohanty
 //  Date: 4/21/2022
 //  Description: Accepts integer commands from the user
