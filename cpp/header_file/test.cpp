@@ -15,5 +15,7 @@ int main()
 	vec1.push_back(9);
 	vec1.push_back(10);
 	vec1.print();
+	vec1.empty();
+	std::cout << vec1.size() << std::endl;
 	return 0;
 }

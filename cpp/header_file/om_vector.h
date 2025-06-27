@@ -34,12 +34,19 @@ namespace omlib
 				}
 				std::cout << data_vec[data_vec.size() - 1] << "]" << std::endl;
 			}
-			// Returns "true" if empty and "false" if data_vec 
+			// Returns "True" if empty and "False" if data_vec 
 			// has a non-zero number of entries.
 			// const ensures that data_vec remains read-only.
-			bool empty() const
+			void empty() const
 			{
-				return data_vec.empty();
+				if (!(data_vec.empty()))
+				{
+					std::cout << "False." << std::endl;
+				}
+				else
+				{
+					std::cout << "True." << std::endl;
+				}
 			}
 			// Returns size_t containing data_vec's size.
 			// size_t chosen because guaranteed to be non-negative.
