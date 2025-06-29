@@ -7,7 +7,7 @@ using namespace std;
 
 bool isvalidcc(const string& cardNum)
 {
-	int card_length = cardNum.length
+	int card_length = cardNum.length();
 	if ((cardNum.length() > 12 && cardNum.length() < 17) && (cardNum.at(0) == '4' || cardNum.at(0) == '5' || cardNum.at(0) == '6'))
 	{
 		int two_even_sum = 0;
@@ -37,8 +37,8 @@ int main()
 	vector<string>::iterator itr;
 
 	for (i = 1, itr = cardnumbers.begin(); itr != cardnumbers.end(); ++itr, i++) {
-		cout << setw(2)  << i << " " 
-			 << setw(17) << *itr 
+		cout << setw(2)  << i << " "
+			 << setw(17) << *itr
 			 << ((isvalidcc(*itr)) ? " is valid" : " is not valid") << endl;
 	}
 
