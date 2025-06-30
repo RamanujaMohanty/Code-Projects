@@ -1,0 +1,132 @@
+/* Universal Styles */
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1F1F1F;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 2px solid #EF9C07;
+}
+
+h1, h2 {
+    color: #EF9C07;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #1F1F1F;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #EF9C07;
+}
+
+/* Main Content */
+main {
+    padding: 2em;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #1F1F1F;
+    color: #ffffff;
+}
+
+button[type="submit"] {
+    background-color: #EF9C07;
+    color: #121212;
+    border: none;
+    padding: 0.75em;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d88c06;
+}
+
+/* View Post Specifics */
+.video-container {
+    text-align: center;
+}
+
+.video-container video {
+    width: 80%;
+    max-width: 800px;
+    border: 5px solid #EF9C07;
+}
+
+.video-info {
+    text-align: left;
+    margin-top: 1em;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Post Video Specifics */
+.post-form-container {
+    border: 2px solid #EF9C07;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.post-form-container form {
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+    background-color: #1F1F1F;
+    border-top: 2px solid #EF9C07;
+}
