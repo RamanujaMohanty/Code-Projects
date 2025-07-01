@@ -12,8 +12,8 @@ bool isvalidcc(const string& card_num)
     {
         int even_sum = 0;
         int odd_sum = 0;
-        int total_sum = 0;
-            for (int ii = card_len - 2; ii > 0; ii -= 2)
+        int total_sum = even_sum + odd_sum;
+	for (int ii = card_len - 2; ii > 0; ii -= 2)
         {
              odd_sum += static_cast<int>(card_num.at(ii));
         }
@@ -22,13 +22,18 @@ bool isvalidcc(const string& card_num)
             int twice_num = static_cast<int>(card_num.at(jj));
             if (twice_num > 9)
             {
-                ;
+		    int twice_sum = (twice_num / 10) + (twice_num % 10);
+		    even_sum += twice_sum;
             }
             else
             {
                 even_sum += twice_num;
             }
         }
+	if (total_sum % 10 == 0)
+	{
+		return true;
+	}
     }
 	return false;
 }
