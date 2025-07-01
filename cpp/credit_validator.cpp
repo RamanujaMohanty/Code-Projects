@@ -5,15 +5,31 @@
 using namespace std;
 
 
-bool isvalidcc(const string& cardNum)
+bool isvalidcc(const string& card_num)
 {
-	int card_length = cardNum.length();
-	if ((cardNum.length() > 12 && cardNum.length() < 17) && (cardNum.at(0) == '4' || cardNum.at(0) == '5' || cardNum.at(0) == '6'))
-	{
-		int two_even_sum = 0;
-		int odd_sum = 0;
-		for (int ii)
-	}
+	int card_len = card_num.length();
+	if ((card_len > 12 && card_len < 17) && (card_num.at(0) == '4' || card_num.at(0) == '5' || card_num.at(0) == '6'))
+    {
+        int even_sum = 0;
+        int odd_sum = 0;
+        int total_sum = 0;
+            for (int ii = card_len - 2; ii > 0; ii -= 2)
+        {
+             odd_sum += static_cast<int>(card_num.at(ii));
+        }
+        for (int jj = card_len - 1; jj > -1; jj -= 2)
+        {
+            int twice_num = static_cast<int>(card_num.at(jj));
+            if (twice_num > 9)
+            {
+                ;
+            }
+            else
+            {
+                even_sum += twice_num;
+            }
+        }
+    }
 	return false;
 }
 
