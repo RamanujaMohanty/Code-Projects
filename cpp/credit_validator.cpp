@@ -15,11 +15,11 @@ bool isvalidcc(const string& card_num)
         int total_sum = even_sum + odd_sum;
 	for (int ii = card_len - 2; ii > 0; ii -= 2)
         {
-             odd_sum += static_cast<int>(card_num.at(ii));
+             odd_sum += (static_cast<int>(card_num.at(ii)) - 48);
         }
         for (int jj = card_len - 1; jj > -1; jj -= 2)
         {
-            int twice_num = static_cast<int>(card_num.at(jj));
+            int twice_num = (static_cast<int>(card_num.at(jj)) - 48) * 2;
             if (twice_num > 9)
             {
 		    int twice_sum = (twice_num / 10) + (twice_num % 10);
