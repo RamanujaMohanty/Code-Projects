@@ -12,7 +12,7 @@ bool isvalidcc(const string& card_num)
         if (card_num[0] == '3' && card_num[1] != '7') return false;
         int even_sum = 0;
         int odd_sum = 0;
-	    for (int ii = card_len - 1; ii > 0; ii -= 2)
+	    for (int ii = card_len - 1; ii > -1; ii -= 2)
             odd_sum += card_num[ii] - '0';
         for (int jj = card_len - 2; jj > -1; jj -= 2) {
             int twice_num = (card_num[jj] - '0') * 2;
