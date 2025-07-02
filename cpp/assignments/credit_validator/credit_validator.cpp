@@ -1,3 +1,13 @@
+/**************************************************************** 
+ * 
+ * File: [credit_validator.cpp] 
+ * By: [Ramanuja Mohanty] 
+ * Date: [07/02/25] 
+ * 
+ * Description: [Based on a provided list of Credit Card numbers
+ *		 find if the numbers are valid.] 
+ * ****************************************************************/
+
 #include <iostream> // For input-output handling
 #include <iomanip>  // For 'setw' in main
 #include <string>   // For length method
