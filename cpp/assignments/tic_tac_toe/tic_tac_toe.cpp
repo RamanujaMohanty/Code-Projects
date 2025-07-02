@@ -11,6 +11,7 @@
 #include <iostream>
 using namespace std;
 
+// Function declarations (asked professor | implemented separately)
 bool isWon(char, char[][3]);
 bool isDraw(char[][3]);
 void displayBoard(char[][3]);
@@ -50,6 +51,24 @@ int main() {
 			cout << "No winner" << endl;
 			exit(0);
 		}
+	}
+
+	// displayBoard Implementation
+	void displayBoard(char board[][3]) {
+		cout << "-------------" << endl;
+		for (int ii = 0; ii < 3; ++ii) {
+			cout << "|";
+			for (int jj = 0; jj < 3; ++jj) {
+				cout << " " << board[i][j] << " |";
+			}
+			cout << endl << "-------------" << endl;
+		}
+	}
+
+	// makeAMove Implementation
+	void makeAMove (char board[][3], char player) {
+		int row, col;
+		cout << "Enter a row (0, 1, 2) for player " << player << "   : ";
 	}
 
 	return 0;
