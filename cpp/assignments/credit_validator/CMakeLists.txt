@@ -25,3 +25,22 @@ add_executable(credit_validator credit_validator.cpp)
 # This is necessary if your code uses external libraries.
 # For example, to link the pthreads library:
 # target_link_libraries(my_executable PRIVATE pthread)
+
+# --- Add Compiler Options ---
+
+# Adds compiler options specifically to the "my_executable" target.
+# This is the modern, preferred method.
+# INTERFACE, PUBLIC, and PRIVATE control the scope of the options.
+# PRIVATE: Options apply only to this target.
+# PUBLIC: Options apply to this target and anything that links to it.
+target_compile_options(credit_validator PRIVATE
+    -Wall          # Enable all standard compiler warnings.
+    -Wextra        # Enable additional warnings.
+    -Wpedantic     # Issue all warnings demanded by strict ISO C++.
+    -ggdb          # Generate STABS for GDB 
+)
+
+# (Alternative) Global compiler flags.
+# These flags are added to all C++ targets in the project.
+# This method is less specific than target_compile_options.
+# add_compile_options(-Wall -Wextra -Wpedantic -O3)

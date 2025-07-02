@@ -8,32 +8,21 @@ using namespace std;
 bool isvalidcc(const string& card_num)
 {
 	int card_len = card_num.length();
-	if ((card_len > 12 && card_len < 17) && (card_num.at(0) == '4' || card_num.at(0) == '5' || card_num.at(0) == '6'))
-    {
+	if ((card_len > 12 && card_len < 17) && (card_num[0] > '2' && card_num[0] < '7')) {
+        if (card_num[0] == '3' && card_num[1] != '7') return false;
         int even_sum = 0;
         int odd_sum = 0;
-        int total_sum = even_sum + odd_sum;
-	for (int ii = card_len - 2; ii > 0; ii -= 2)
-        {
-             odd_sum += (static_cast<int>(card_num.at(ii)) - 48);
-        }
-        for (int jj = card_len - 1; jj > -1; jj -= 2)
-        {
-            int twice_num = (static_cast<int>(card_num.at(jj)) - 48) * 2;
-            if (twice_num > 9)
-            {
-		    int twice_sum = (twice_num / 10) + (twice_num % 10);
-		    even_sum += twice_sum;
+	    for (int ii = card_len - 1; ii > 0; ii -= 2)
+            odd_sum += card_num[ii] - '0';
+        for (int jj = card_len - 2; jj > -1; jj -= 2) {
+            int twice_num = (card_num[jj] - '0') * 2;
+            if (twice_num > 9) {
+		        int twice_sum = (twice_num / 10) + (twice_num % 10);
+		        even_sum += twice_sum;
             }
-            else
-            {
-                even_sum += twice_num;
-            }
+            else even_sum += twice_num;
         }
-	if (total_sum % 10 == 0)
-	{
-		return true;
-	}
+	    if ((even_sum + odd_sum) % 10 == 0) return true;
     }
 	return false;
 }
