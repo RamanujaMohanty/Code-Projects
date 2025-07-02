@@ -68,8 +68,19 @@ int main() {
 	// makeAMove Implementation
 	void makeAMove (char board[][3], char player) {
 		int row, col;
-		cout << "Enter a row (0, 1, 2) for player " << player << "   : ";
+		while true {
+			cout << "Enter a row (0, 1, 2) for player " << player << "   : ";
+			cin >> row;
+			cout << "Enter a column (0, 1, 2) for player " << player << "   : ";
+			cin >> col;
+			if (board[row][col] == ' ') {
+				board[row][col] = player;
+				break;
+			}
+			else {
+				cout << "This cell is already occupied. Try a different cell" << endl;
+			}
+		}
 	}
-
 	return 0;
 } 
