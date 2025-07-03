@@ -59,16 +59,16 @@ int main() {
 bool isWon(char player, char board[][3]) {
 	// Handles rows & columns
 	for (int ii = 0; ii < 3; ++ii) {
-		// First conditional checks rows ([ii][0], [ii][1]) 
+		// First conditional checks rows ([ii][0], [ii][1])
 		// | Second checks for columns ([0][ii], [1][ii])
-		if ((board[ii][0] == player && board[ii][1] == player && board[ii][2] == player) || 
+		if ((board[ii][0] == player && board[ii][1] == player && board[ii][2] == player) ||
 				(board[0][ii] == player && board[1][ii] == player && board[2][ii] == player)) {
 			return true;
 		}
 	}
-	// First conditional statement checks L-R diagonal ([0][0] - [2][2]) 
+	// First conditional statement checks L-R diagonal ([0][0] - [2][2])
 	// | Second checks for R-L diagonal ([0][2] - [2][0]).
-	if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) || 
+	if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
 			(board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
 		return true;
 	}
@@ -77,14 +77,19 @@ bool isWon(char player, char board[][3]) {
 }
 
 // isDraw Implementation
+/*
+ * Checks if every slot on board has been filled.
+ * If every slot has been filled while !(isWon), then isDraw
+*/
 bool isDraw(char board[][3]) {
 	// Checks and iterates across x coordinates
 	for (int ii = 0; ii < 3; ++ii) {
 		// Checks and iterates across y coordinates
 		for (int jj = 0; jj < 3; ++jj) {
-			// if board is empty
-			if (board[ii][jj] == ' ') { 
-				return false; 
+			// If all spaces on board are not filled
+            // Return false
+			if (board[ii][jj] == ' ') {
+				return false;
 			}
 		}
 	}
@@ -93,17 +98,26 @@ bool isDraw(char board[][3]) {
 
 // displayBoard Implementation
 void displayBoard(char board[][3]) {
+    // Upper frame
 	cout << "-------------" << endl;
 	for (int ii = 0; ii < 3; ++ii) {
-		cout << "|";
+		cout << "|"; // Starts of with pipe
+        // Follows up with three more pipes to distinguish
+        // playable spots.
 		for (int jj = 0; jj < 3; ++jj) {
 			cout << " " << board[ii][jj] << " |";
 		}
+        // Divider frame
 		cout << endl << "-------------" << endl;
 	}
 }
 
 // makeAMove Implementation
+/*
+ * Asks user to enter row and column numbers during their turn
+ * If an occupied spot is chosen, a message is printed to inform
+ * the user.
+ */
 void makeAMove (char board[][3], char player) {
 	// X & Y coordinates for player.
 	int row, col;
@@ -120,8 +134,8 @@ void makeAMove (char board[][3], char player) {
 			break;
 		}
 		// Else notify user of bad position
-		else { 
-			cout << "This cell is already occupied. Try a different cell" << endl; 
+		else {
+			cout << "This cell is already occupied. Try a different cell" << endl;
 		}
 	}
 }
