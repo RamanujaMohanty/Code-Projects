@@ -98,6 +98,7 @@ bool isDraw(char board[][3]) {
 
 // displayBoard Implementation
 void displayBoard(char board[][3]) {
+	cout << endl;
     // Upper frame
 	cout << "-------------" << endl;
 	for (int ii = 0; ii < 3; ++ii) {
@@ -123,10 +124,10 @@ void makeAMove (char board[][3], char player) {
 	int row, col;
 	while (true) {
 		// Prompts user for row, adds to row
-		cout << "Enter a row (0, 1, 2) for player " << player << "      : ";
+		cout << "Enter a row (0, 1, 2) for player " << player << "   : ";
 		cin >> row;
 		// Prompts user for column, adds to col
-		cout << "Enter a column (0, 1, 2) for player " << player << "   : ";
+		cout << "Enter a column (0, 1, 2) for player " << player << ": ";
 		cin >> col;
 		// If spot at [row][col] is empty, add player's symbol
 		if (board[row][col] == ' ') {
