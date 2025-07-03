@@ -1,11 +1,11 @@
-/**************************************************************** 
- * 
- * File: [credit_validator.cpp] 
- * By: [Ramanuja Mohanty] 
- * Date: [07/02/25] 
- * 
+/****************************************************************
+ *
+ * File: [credit_validator.cpp]
+ * By: [Ramanuja Mohanty]
+ * Date: [07/02/25]
+ *
  * Description: [Based on a provided list of Credit Card numbers
- *		 find if the numbers are valid.] 
+ *		 find if the numbers are valid.]
  * ****************************************************************/
 
 #include <iostream> // For input-output handling
@@ -19,7 +19,7 @@ bool isvalidcc(const string& card_num)
 {
 	int card_len = card_num.length(); // Length of string being fed into method.
 	// First logic block: If card_len is 13-16 AND first digit is 3-6
-	if ((card_len > 12 && card_len < 17) && (card_num[0] > '2' && card_num[0] < '7')) 
+	if ((card_len > 12 && card_len < 17) && (card_num[0] > '2' && card_num[0] < '7'))
 	{
 		// Second logic statement: If first digit is 3 and second digit is NOT 7
 		// return false; made to handle AmEx Credit Card Requirement (37)
@@ -29,20 +29,20 @@ bool isvalidcc(const string& card_num)
 		// Sum of ints in odd places
         	int odd_sum = 0;
 		// Starts at last digit, works its way back to final digit, adds digit to odd_sum
-	    	for (int ii = card_len - 1; ii > -1; ii -= 2) 
+	    	for (int ii = card_len - 1; ii > -1; ii -= 2)
 		{
 			// Doubles integer produced by subtraction of ASCII value of card_num[jj]
 			// from '0' (48)
 			odd_sum += card_num[ii] - '0';
 		}
 		// Starts at last digit, works its way back to final digit
-		for (int jj = card_len - 2; jj > -1; jj -= 2) 
+		for (int jj = card_len - 2; jj > -1; jj -= 2)
 		{
 			// Doubles integer produced by subtraction of ASCII value of card_num[jj]
 			// from '0' (48)
 			int twice_num = (card_num[jj] - '0') * 2;
 			// Handles double digit numbers
-			if (twice_num > 9) 
+			if (twice_num > 9)
 			{
 				// Adds the quotient and remainder together.
 				int twice_sum = (twice_num / 10) + (twice_num % 10);
