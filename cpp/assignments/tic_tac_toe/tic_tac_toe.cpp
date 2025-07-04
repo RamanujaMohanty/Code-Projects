@@ -98,17 +98,18 @@ bool isDraw(char board[][3]) {
 
 // displayBoard Implementation
 void displayBoard(char board[][3]) {
+	// Line break for space between displays.
 	cout << endl;
-    // Upper frame
+	// Upper bar
 	cout << "-------------" << endl;
 	for (int ii = 0; ii < 3; ++ii) {
 		cout << "|"; // Starts of with pipe
-        // Follows up with three more pipes to distinguish
-        // playable spots.
+		// Follows up with three more pipes to distinguish
+		// playable spots.
 		for (int jj = 0; jj < 3; ++jj) {
 			cout << " " << board[ii][jj] << " |";
 		}
-        // Divider frame
+		// Divider bar
 		cout << endl << "-------------" << endl;
 	}
 }
