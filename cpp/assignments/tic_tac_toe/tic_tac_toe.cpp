@@ -17,7 +17,8 @@ bool isDraw(char[][3]);
 void displayBoard(char[][3]);
 void makeAMove(char[][3], char);
 
-int main() {
+int main()
+{
 	//
 	//	PLEASE DO NOT CHANGE function main
 	//
@@ -56,23 +57,23 @@ int main() {
 }
 
 // isWon Implementation
-bool isWon(char player, char board[][3]) {
-	// Handles rows & columns
-	for (int ii = 0; ii < 3; ++ii) {
-		// First conditional checks rows ([ii][0], [ii][1])
-		// | Second checks for columns ([0][ii], [1][ii])
-		if ((board[ii][0] == player && board[ii][1] == player && board[ii][2] == player) ||
-				(board[0][ii] == player && board[1][ii] == player && board[2][ii] == player)) {
-			return true;
-		}
-	}
-	// First conditional statement checks L-R diagonal ([0][0] - [2][2])
-	// | Second checks for R-L diagonal ([0][2] - [2][0]).
-	if ((board[0][0] == player && board[1][1] == player && board[2][2] == player) ||
-			(board[0][2] == player && board[1][1] == player && board[2][0] == player)) {
-		return true;
-	}
-	// Base case/case upon failure.
+bool isWon(char player, char board[][3])
+{
+	// handles rows
+	for (int rr = 0; rr < 3; ++rr)
+		if (board[rr][0] == player && board[rr][1] == player && board[rr][2] == player) return true;
+
+	// handle columns
+	for (int cc = 0; cc < 3; ++cc)
+		if (board[0][cc] == player && board[1][cc] == player && board[2][cc] == player) return true;
+
+	// check L-R diagonal ([0][0] - [2][2])
+	if (board[0][0] == player && board[1][1] == player && board[2][2] == player) return true;
+
+	// check R-L diagonal ([0][2] - [2][0]).
+	if (board[0][2] == player && board[1][1] == player && board[2][0] == player) return true;
+
+	// base case/case upon failure.
 	return false;
 }
 
@@ -81,8 +82,9 @@ bool isWon(char player, char board[][3]) {
  * Checks if every slot on board has been filled.
  * If every slot has been filled while !(isWon), then isDraw
 */
-bool isDraw(char board[][3]) {
-	// Checks and iterates across x coordinates
+bool isDraw(char board[][3])
+{
+	// checks and iterates across x coordinates
 	for (int ii = 0; ii < 3; ++ii) {
 		// Checks and iterates across y coordinates
 		for (int jj = 0; jj < 3; ++jj) {
@@ -97,7 +99,8 @@ bool isDraw(char board[][3]) {
 }
 
 // displayBoard Implementation
-void displayBoard(char board[][3]) {
+void displayBoard(char board[][3])
+{
 	// Line break for space between displays.
 	cout << endl;
 	// Upper bar
@@ -120,7 +123,8 @@ void displayBoard(char board[][3]) {
  * If an occupied spot is chosen, a message is printed to inform
  * the user.
  */
-void makeAMove (char board[][3], char player) {
+void makeAMove (char board[][3], char player)
+{
 	// X & Y coordinates for player.
 	int row, col;
 	while (true) {
