@@ -192,7 +192,7 @@ void processQuery(const string& input, map<string, vector<DictEntry>>& queryDict
         }
     }
 
-    if (reverse) reverse(results.begin(), results.end());
+    if (reverse) std::reverse(results.begin(), results.end());
 
     for (const auto& e : errors) cout << e << endl;
 
@@ -224,7 +224,7 @@ int main() {
     int count = 1;
     string input;
     while (true) {
-        cout << "Search [" << count << "]:" << endl;
+        cout << "Search [" << count << "]: ";
         getline(cin, input);
         if (input == "!q") {
             cout << "\n-----THANK YOU-----" << endl;
