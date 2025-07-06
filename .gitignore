@@ -2,6 +2,7 @@ a.out
 *.o
 *.a
 *.so
+*.swp
 .vscode
 CMakeCache.txt
 CMakeFiles

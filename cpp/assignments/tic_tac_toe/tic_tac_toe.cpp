@@ -25,6 +25,15 @@ int main()
 	char board[3][3] = { { ' ', ' ', ' ' },{ ' ', ' ', ' ' },{ ' ', ' ', ' ' } };
 	displayBoard(board);
 
+    bool isX = true;
+    for (int ii = 0; ii < 9; ++ii, isX = !isX) {
+		makeAMove(board, isX);
+		displayBoard(board);
+
+        if (isWon(isX)) {
+        }
+    }
+
 	while (true) {
 
 		// The first player makes a move
