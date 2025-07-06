@@ -40,17 +40,25 @@ using Dictionary = unordered_map<string, DictEntries>;
 // TODO: implement this
 bool readDictionary(const string &dictionaryFile, Dictionary &dictionary)
 {
+    // dummy value
     return false;
 }
 
 // TODO: implement this
 string showMenu(void)
 {
-    return "command";
+    // dummy value
+    return "query";
 }
 
-bool actOnCommand(const string &command, const Dictionary &dictionary)
+// TODO: implement this
+bool processQuery(const string &query, const Dictionary &dictionary)
 {
+    // parsing scheme:
+    // 1. first word is always the keyword
+    // 2.
+
+    // dummy value
     return false;
 }
 
@@ -65,10 +73,9 @@ int main(int argc, const char *argv[])
     readDictionary(argv[1], dictionary);
 
     while (true) {
-        string command = showMenu();
+        string query = showMenu();
 
-        // TODO: implement actOnCommand(). It takes a string and returns a bool
-        bool rc = actOnCommand(command, dictionary);
+        bool rc = processQuery(query, dictionary);
 
         if (rc) continue;
         // TODO: handle errors in parsing
