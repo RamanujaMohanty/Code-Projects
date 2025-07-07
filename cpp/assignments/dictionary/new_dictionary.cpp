@@ -287,7 +287,7 @@ int main() {
 
     cout << "! Loading data...\n! Loading completed..." << endl;
     cout << "! Closing data file... " << file_path << endl;
-    cout << "====== DICTIONARY 340 C++ =====" << endl;
+    cout << "\n====== DICTIONARY 340 C++ =====" << endl;
     cout << "------ Keywords: " << new_dictionary.size() << endl;
     int def_count = 0;
     for (const auto& entry: new_dictionary) def_count += entry.second.size();
