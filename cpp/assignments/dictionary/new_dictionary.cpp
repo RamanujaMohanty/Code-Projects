@@ -41,6 +41,23 @@ Dictionary loadDict(const string& filepath, bool& success)
         if (key_end_index == string::npos) continue;
         string keyword = entry_line.substr(0, key_end_index);
         string rem_line = entry_line.substr(key_end_index + 1);
+
+        DictEntries de;
+        stringstream line_stream(rem_line);
+        string part_and_def;
+        while (getline(line_stream, part_and_def, '|')) {
+            size_t sep_index = part_and_def.find("-=>>");
+            if (sep_index == string::npos) break;
+            string part = part_and_def.substr(0, sep_index);
+            string def = part_and_def.substr(sep_index + 5);
+            // Clean up whitespace
+            keyword.erase(0, keyword.find_first_not_of(" "));
+            keyword.erase(keyword.find_last_not_of(" ") + 1);
+            part.erase(0, part.find_first_not_of(" "));
+            part.erase(part.find_last_not_of(" ") + 1);
+            def.erase(0, def.find_first_not_of(" "));
+            def.erase(def.find_last_not_of(" ") + 1);
+        }
     }
     return newDict;
 }
@@ -139,3 +156,5 @@ int main()
     }
     return 0;
 }
+
+// word [|part_of_speech -=>> DEF.]
