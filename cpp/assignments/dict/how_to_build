@@ -1,5 +1,0 @@
-# one-time
-cmake -B build -G Ninja
-
-# repeat
-cmake --build build
