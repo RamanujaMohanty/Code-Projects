@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <cstddef>
-#include <execution>
 #include <iostream>
 #include <fstream>
 #include <pthread.h>
@@ -9,15 +9,13 @@
 #include <vector>
 using namespace std;
 
-struct DictEntry
-{
+struct DictEntry {
     string keyword;
     string partOfSpeech;
     string definition;
 };
 
-map<string, vector<DictEntry>> loadDict(const string& filepath, bool& success)
-{
+map<string, vector<DictEntry>> loadDict(const string& filepath, bool& success) {
     // Makes a new HashMap with a string as the key(s)
     // and the vector made of DictEntries as the value(s).
     map<string, vector<DictEntry>> newDictionary;
@@ -28,8 +26,7 @@ map<string, vector<DictEntry>> loadDict(const string& filepath, bool& success)
     if (!success) return newDictionary;
 
     string entry_line;
-    while(getline(entry_file, entry_line))
-    {
+    while(getline(entry_file, entry_line)) {
         // Isolates and adds keyword.
         if (entry_line.empty()) continue;
         size_t key_end_index = entry_line.find("|");
@@ -40,20 +37,32 @@ map<string, vector<DictEntry>> loadDict(const string& filepath, bool& success)
         stringstream rem_stream(rem_line);
         string part_and_def;
         // While loop to keep going upon encountering '|'
-        while (getline(rem_stream, part_and_def, '|'))
-        {
+        while (getline(rem_stream, part_and_def, '|')) {
             size_t sep_index = part_and_def.find("-=>>");
             if (sep_index == string::npos) continue;
             string part = part_and_def.substr(0, sep_index);
             string def = part_and_def.substr(sep_index + 5);
             // Cleans up whitespace.
-            keyword = ;
+            keyword.erase(0, keyword.find_first_not_of(" "));
+            keyword.erase(keyword.find_last_not_of(" ") + 1);
+            part.erase(0, part.find_first_not_of(" "));
+            part.erase(part.find_last_not_of(" ") + 1);
+            def.erase(0, def.find_first_not_of(" "));
+            def.erase(def.find_last_not_of(" ") + 1);
+            newDictionary[keyword].push_back({keyword,part,def});
         }
-
     }
-
     return newDictionary;
 }
+
+bool isPartOfSpeech(const string& word) {
+    static const set<string> parts = {
+        "noun", "verb", "adjective", "adverb",
+        "conjunction", "interjection", "preposition", "pronoun"
+    };
+    return parts.count(word);
+}
+
 
 int main()
 {
@@ -64,8 +73,7 @@ int main()
     bool open_success;
     auto newDict = loadDict(file_path, open_success);
 
-    while (!open_success)
-    {
+    while (!open_success) {
         cout << "<!>ERROR<!> ===> File could not be opened." << endl;
         cout << "<!>ERROR<!> ===> Provided file path: " << file_path << endl;
         cout << "<!>Enter the CORRECT data file path: ";
@@ -84,12 +92,10 @@ int main()
 
     int search_count = 1;
     string search_input;
-    while (true)
-    {
+    while (true) {
         cout << "Search [" << search_count++ << "]: ";
         getline(cin, search_input);
-        if (search_input == "!q" || search_input == "!Q")
-        {
+        if (search_input == "!q" || search_input == "!Q") {
             cout << "\n-----THANK YOU-----" << endl;
             break;
         }
