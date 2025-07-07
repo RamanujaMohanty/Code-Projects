@@ -134,7 +134,6 @@ string capitalize(const string &word) {
 
 void processQuery(const std::string &input, const Dictionary &dict)
 {
-    // Transform the entire input to lowercase at the top for case-insensitivity.
     string lower_input = input;
     std::transform(lower_input.begin(), lower_input.end(), lower_input.begin(), ::tolower);
 
@@ -165,7 +164,6 @@ void processQuery(const std::string &input, const Dictionary &dict)
     bool reverse = false;
     std::vector<std::string> errors;
 
-    // --- Error handling logic ported from DictionaryLookup.java ---
     if (tokens.size() >= 2) {
         std::string second = tokens[1];
         if (isPartOfSpeech(second)) {
@@ -211,7 +209,6 @@ void processQuery(const std::string &input, const Dictionary &dict)
             errors.push_back("\t|");
         }
     }
-    // --- End of ported logic ---
 
     auto it = dict.find(keyword);
     if (it == dict.end()) {
@@ -293,7 +290,9 @@ int main() {
     cout << "====== DICTIONARY 340 C++ =====" << endl;
     cout << "------ Keywords: " << new_dictionary.size() << endl;
     int def_count = 0;
+    for (const auto& entry: new_dictionary) def_count += entry.second.size();
     cout << "------ Definitions: " << def_count << endl;
+
     int search_count = 1;
     string search_input;
     while (true) {
