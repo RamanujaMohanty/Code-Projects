@@ -134,15 +134,17 @@ string capitalize(const string &word) {
 
 void processQuery(const std::string &input, const Dictionary &dict)
 {
-    string input_copy = input;
-    std::transform(input_copy.begin(), input_copy.end(), input_copy.begin(), ::tolower);
-    if (input == "!help" ||
-        input.find_first_not_of(" \t\n\r\f\v") == std::string::npos) {
+    // Transform the entire input to lowercase at the top for case-insensitivity.
+    string lower_input = input;
+    std::transform(lower_input.begin(), lower_input.end(), lower_input.begin(), ::tolower);
+
+    if (lower_input == "!help" ||
+        lower_input.find_first_not_of(" \t\n\r\f\v") == std::string::npos) {
         printHowTo();
         return;
     }
 
-    std::stringstream ss(input_copy);
+    std::stringstream ss(lower_input);
     std::string token;
     std::vector<std::string> tokens;
     while (ss >> token) {
@@ -151,6 +153,7 @@ void processQuery(const std::string &input, const Dictionary &dict)
 
     if (tokens.empty())
         return;
+
     if (tokens.size() > 4) {
         printHowTo();
         return;
@@ -160,20 +163,55 @@ void processQuery(const std::string &input, const Dictionary &dict)
     std::string partOfSpeechStr;
     bool distinct = false;
     bool reverse = false;
+    std::vector<std::string> errors;
 
-    // Parse optional parameters
-    for (size_t i = 1; i < tokens.size(); ++i) {
-        std::string current_token = tokens[i];
-        std::transform(current_token.begin(), current_token.end(),
-                       current_token.begin(), ::tolower);
-        if (isPartOfSpeech(current_token)) {
-            partOfSpeechStr = current_token;
-        } else if (current_token == "distinct") {
+    // --- Error handling logic ported from DictionaryLookup.java ---
+    if (tokens.size() >= 2) {
+        std::string second = tokens[1];
+        if (isPartOfSpeech(second)) {
+            partOfSpeechStr = second;
+        } else if (second == "distinct") {
             distinct = true;
-        } else if (current_token == "reverse") {
+        } else if (second == "reverse") {
             reverse = true;
+        } else {
+            errors.push_back("\t|");
+            errors.push_back("\t <The entered 2nd parameter '" + tokens[1] + "' is NOT a part of speech.>");
+            errors.push_back("\t <The entered 2nd parameter '" + tokens[1] + "' is NOT 'distinct'.>");
+            errors.push_back("\t <The entered 2nd parameter '" + tokens[1] + "' is NOT 'reverse'.>");
+            errors.push_back("\t <The entered 2nd parameter '" + tokens[1] + "' was disregarded.>");
+            errors.push_back("\t <The 2nd parameter should be a part of speech or 'distinct' or 'reverse'.>");
+            errors.push_back("\t|");
         }
     }
+    if (tokens.size() >= 3) {
+        std::string third = tokens[2];
+        if (third == "distinct") {
+            distinct = true;
+        } else if (third == "reverse") {
+            reverse = true;
+        } else {
+            errors.push_back("\t|");
+            errors.push_back("\t <The entered 3rd parameter '" + tokens[2] + "' is NOT 'distinct'.>");
+            errors.push_back("\t <The entered 3rd parameter '" + tokens[2] + "' is NOT 'reverse'.>");
+            errors.push_back("\t <The entered 3rd parameter '" + tokens[2] + "' was disregarded.>");
+            errors.push_back("\t <The 3rd parameter should be 'distinct' or 'reverse'.>");
+            errors.push_back("\t|");
+        }
+    }
+    if (tokens.size() >= 4) {
+        std::string fourth = tokens[3];
+        if (fourth == "reverse") {
+            reverse = true;
+        } else {
+            errors.push_back("\t|");
+            errors.push_back("\t <The entered 4th parameter '" + tokens[3] + "' is NOT 'reverse'.>");
+            errors.push_back("\t <The entered 4th parameter '" + tokens[3] + "' was disregarded.>");
+            errors.push_back("\t <The 4th parameter should be 'reverse'.>");
+            errors.push_back("\t|");
+        }
+    }
+    // --- End of ported logic ---
 
     auto it = dict.find(keyword);
     if (it == dict.end()) {
@@ -183,6 +221,11 @@ void processQuery(const std::string &input, const Dictionary &dict)
             << "\t|\n";
         printHowTo();
         return;
+    }
+
+    // Print any generated errors
+    for (const auto &error : errors) {
+        std::cout << error << std::endl;
     }
 
     std::vector<std::string> results;
