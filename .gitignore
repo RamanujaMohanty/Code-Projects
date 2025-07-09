@@ -4,6 +4,7 @@ a.out
 *.so
 *.swp
 .vscode
+.env
 CMakeCache.txt
 CMakeFiles
 Makefile
