@@ -54,9 +54,13 @@ This repository is organized by programming language. Below is a tree structure 
 
 ---
 
-### ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) & ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+### ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) 
 
-* **rs**: This directory, located under `py`, contains projects written in Rust.
+---
+
+### ![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+
+* **rs**: This directory contains projects written in Rust.
     * `first_project`: A starter project in Rust.
     * `myTest`: A test project in Rust.
 
@@ -66,6 +70,6 @@ This repository is organized by programming language. Below is a tree structure 
 
 Feel free to browse through the folders and files. You can find more of my work on my GitHub profile!
 
-**[➡️ Ramanuja Mohanty's GitHub Profile](https://github.com/RamanujaMohanty)**
+**[➡️ My GitHub Profile](https://github.com/RamanujaMohanty)**
 
 ---
