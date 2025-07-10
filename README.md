@@ -2,8 +2,6 @@
 
 A collection of my personal projects, assignments, and coding exercises in various programming languages. This repository serves as a personal archive of the work I've done.
 
-> **Warning:** The code in this repository is a direct representation of my brain. Proceed with caution. 😉
-
 ## 🚀 Languages & Projects
 
 This repository is organized by programming language. Below is a tree structure of the projects with brief descriptions.
@@ -63,13 +61,5 @@ This repository is organized by programming language. Below is a tree structure 
 * **rs**: This directory contains projects written in Rust.
     * `first_project`: A starter project in Rust.
     * `myTest`: A test project in Rust.
-
----
-
-## 📫 Find Me
-
-Feel free to browse through the folders and files. You can find more of my work on my GitHub profile!
-
-**[➡️ My GitHub Profile](https://github.com/RamanujaMohanty)**
 
 ---
