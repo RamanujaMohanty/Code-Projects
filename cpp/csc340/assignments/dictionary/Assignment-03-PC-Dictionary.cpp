@@ -77,6 +77,17 @@ using DictEntry = pair<PartsOfSpeech, string>;
 using DictEntries = vector<DictEntry>;
 using Dictionary = map<string, DictEntries>;
 
+// Helper function for case-insensitive string comparison
+bool areStringsEqualIgnoreCase(const std::string& a, const std::string& b) {
+    return a.size() == b.size() &&
+           std::equal(a.begin(), a.end(), b.begin(), b.end(),
+                      [](char char_a, char char_b) {
+                          return std::tolower(static_cast<unsigned char>(char_a)) ==
+                                 std::tolower(static_cast<unsigned char>(char_b));
+                      });
+}
+
+
 Dictionary loadDict(const string &filepath, bool &success) {
     Dictionary newDict;
     ifstream entry_file(filepath);
@@ -246,7 +257,8 @@ void processQuery(const std::string &input, const Dictionary &dict)
             bool is_duplicate = false;
             if (distinct) {
                 for (const auto &res : results) {
-                    if (res == result) {
+                    // MODIFIED: Use case-insensitive comparison for the distinct check.
+                    if (areStringsEqualIgnoreCase(res, result)) {
                         is_duplicate = true;
                         break;
                     }
@@ -272,7 +284,8 @@ void processQuery(const std::string &input, const Dictionary &dict)
     } else {
         std::cout << "\t|\n";
         for (const auto &res : results) {
-            std::cout << "\t " << res << "\n";
+            // MODIFIED: Removed extra space to match sample output's alignment.
+            std::cout << "\t" << res << "\n";
         }
         std::cout << "\t|\n";
     }
@@ -315,5 +328,3 @@ int main() {
     }
     return 0;
 }
-
-// word [|part_of_speech -=>> DEF.]
