@@ -11,7 +11,7 @@
     - Set every distance to **INFINITY** until linking a vertex to ST
         is possible.
 
-    ```
+    ```cpp
     for (ii = 0 to |V| - 1)
         dist = INFINITY
         edge[ii] = NULL;
