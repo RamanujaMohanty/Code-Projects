@@ -132,7 +132,7 @@ int main()
         std::cout << "graph details:\n";
         std::cout << "nodes: " << mc_simulation.graph_obj.num_vertices << "\n";
         std::cout << "edges: " << mc_simulation.graph_obj.num_edges << "\n";
-        std::cout << "average shortest length from node 0 to all nodes: " << std::fixed << std::setprecision(4) << avg_path_length << "\n\n";
+        std::cout << "average shortest length from node 0 to all nodes: " << std::fixed << std::setprecision(4) << avg_path_length << "\n";
     }
     return 0;
 }
