@@ -1,13 +1,12 @@
 #include <iostream>
-using namespace std;
-#define log(x) cout << x << endl;
+#define log(x) std::cout << x << std::endl;
 
 int main()
 {
 	int num = 5;
 	void* pNum = &num;
-	cout << "Type of pNum: " << typeid(pNum).name() << endl;
-	cout << "pNum value: " << pNum << endl;
+	log(typeid(pNum).name());
+	cout << "pNum value: " << (pNum);
 	cout << "&pNum value: " << &pNum << endl;
 
     int age = 21;
