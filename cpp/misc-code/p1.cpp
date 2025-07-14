@@ -6,8 +6,8 @@ int main()
 	int num = 5;
 	void* pNum = &num;
 	log(typeid(pNum).name());
-	cout << "pNum value: " << (pNum);
-	cout << "&pNum value: " << &pNum << endl;
+    log(pNum);
+	log(&pNum);
 
     int age = 21;
     int *pAge = &age;
@@ -20,6 +20,13 @@ int main()
     int count = 5;
     pCount = &count;
     log(pCount);
+    // ------------
     *pCount++;
     log(pCount);
+    log(*pCount);
+    // ------------
+    pCount = &count;
+    log(*pCount);
+    (*pCount)++;
+    log(*pCount);
 }
