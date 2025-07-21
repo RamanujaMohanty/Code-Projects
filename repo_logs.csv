@@ -57,7 +57,7 @@ de26dd8,Sun Jul 6 00:33:09 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,Dictiona
 cd502cb,Sat Jul 5 23:38:10 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,linked_list initial implementation.
 21e4ca4,Sat Jul 5 20:30:22 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,Better tic_tac_toe and toggling.
 dbe43ca,Sat Jul 5 19:50:15 2025 -0700,RamanujaMohanty,rmohanty@mail.sfsu.edu,Made changes.
-01e133f,Sat Jul 5 15:30:03 2025 -0700,RamanujaMohanty,rmohanty@mail.sfsu.edu,Changed reverse function, and made changes to search in main.
+01e133f,Sat Jul 5 15:30:03 2025 -0700,RamanujaMohanty,rmohanty@mail.sfsu.edu,"Changed reverse function, and made changes to search in main."
 3415060,Sat Jul 5 00:52:01 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,Added CMakeLists.txt to dictionary.
 5a966f5,Sat Jul 5 00:41:40 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,Made isWon() more readable
 9d7c883,Sat Jul 5 00:23:33 2025 -0700,Deepak Mohanty,dmohanty@gmail.com,Added test cases for tic-tac-toe
