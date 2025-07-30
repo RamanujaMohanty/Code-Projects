@@ -1,28 +1,22 @@
-//	Node.h
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//	Updated by Duc Ta
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
-
+// Node.h
 #pragma once
-
-//
-//
-// PLEASE DO NOT CHANGE THIS FILE
-//
-//
+#include <memory> // Required for std::unique_ptr
+#include <iostream> // For destructor message
 
 template<typename ItemType>
 class Node {
 public:
-	Node();
-	Node(const ItemType&);
-	Node(const ItemType&, Node<ItemType>*);
-	void setItem(const ItemType&);
-	void setNext(Node<ItemType>*);
-	ItemType getItem() const;
-	Node<ItemType>* getNext() const;
+    Node();
+    Node(const ItemType&);
+    ~Node(); // Destructor to show deallocation
+
+    void setItem(const ItemType&);
+    void setNext(std::unique_ptr<Node<ItemType>> nextNodePtr);
+    ItemType getItem() const;
+    Node<ItemType>* getNext() const;
+    std::unique_ptr<Node<ItemType>> takeNext(); // Method to transfer ownership of the next node
 
 private:
-	ItemType        item{};			 // A data item
-	Node<ItemType>* next{ nullptr }; // Pointer to next node
+    ItemType item{};
+    std::unique_ptr<Node<ItemType>> next{nullptr}; // Use unique_ptr for ownership
 };
