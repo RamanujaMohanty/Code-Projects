@@ -1,3 +1,14 @@
+/****************************************************************
+ *
+ * File: [Include.h]
+ * By: [Ramanuja Mohanty]
+ * Date: [08/02/25]
+ *
+ * Description: [Contains srand() function and other header file declarations.]
+ *
+ * ****************************************************************/
+
+
 //	Include.h
 
 #pragma once

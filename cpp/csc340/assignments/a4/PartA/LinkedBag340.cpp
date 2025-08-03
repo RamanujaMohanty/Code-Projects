@@ -1,3 +1,13 @@
+/****************************************************************
+ *
+ * File: [LinkedBag340.cpp]
+ * By: [Ramanuja Mohanty]
+ * Date: [08/02/25]
+ *
+ * Description: [Contains function definitions for helper functions.]
+ *
+ * ****************************************************************/
+
 //	LinkedBag340.cpp
 //	Created by: CSC340
 
