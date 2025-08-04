@@ -1,0 +1,17 @@
+graph TD
+    A[Nuclear Reactor Core] --> B(Nuclear Fission);
+    B --> C(Generates Heat);
+    C --> D(Heats Water);
+    D --> E{Types of Reactors};
+    E --> F[Pressurized Water Reactor];
+    F --> G(Keeps water under pressure);
+    G --> H(Heats a second water supply);
+    H --> I[Steam Generator];
+    E --> J[Boiling Water Reactor];
+    J --> K(Boils water directly in core);
+    K --> L[Steam Generator];
+    I --> M(Produces Steam);
+    L --> M;
+    M --> N(Spins Turbine);
+    N --> O(Drives Electric Generator);
+    O --> P[Generates Electricity];
