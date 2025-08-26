@@ -3,6 +3,7 @@ a.out
 *.a
 *.so
 *.swp
+*.class
 .vscode
 .env
 CMakeCache.txt
