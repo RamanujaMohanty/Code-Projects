@@ -15,7 +15,7 @@ int main()
 	cout << "Length of arr: " << (sizeof(arr) / sizeof(arr[0])) << endl;
 	// Out-of-bounds (Unsafe) Array Access
 	cout << "\nNo index range checking: " << endl;
-	cout << "arr[17]: " << arr[17] << endl;
+	cout << "arr[17]: " << arr[18] << endl;
 	//
 	cout << "\nIterate primitive array 1: " << endl;
 	for (unsigned int ii = 0; ii < (sizeof(arr) / sizeof(arr[0])); ++ii)
