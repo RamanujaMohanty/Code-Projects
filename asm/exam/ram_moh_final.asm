@@ -1,3 +1,9 @@
+# Name:     Ramanuja Mohanty
+# ID:       922147691
+# Date:     05/17/2026
+# CSC 256 - Final Project
+
+##########################################
 
 .data
 x:	    .word	0:4		            # Array to hold x-coordinates of robots
